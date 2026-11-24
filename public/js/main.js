@@ -13,6 +13,22 @@
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setOpen(false); });
   }
 
+  // ---- 透過ヘッダーの文字色（下が黒いセクションなら白文字） ----
+  if (header) {
+    var darkAreas = document.querySelectorAll('[data-header="dark"]');
+    var setTheme = function () {
+      var y = header.offsetHeight / 2, dark = false;
+      darkAreas.forEach(function (el) {
+        var r = el.getBoundingClientRect();
+        if (r.top <= y && r.bottom >= y) dark = true;
+      });
+      header.classList.toggle('is-dark', dark);
+    };
+    window.addEventListener('scroll', setTheme, { passive: true });
+    window.addEventListener('resize', setTheme);
+    setTheme();
+  }
+
   // ---- 実績の絞り込み（トップは data-limit 件まで表示） ----
   var grid = document.querySelector('.works-grid');
   var buttons = document.querySelectorAll('.filters button');

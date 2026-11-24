@@ -66,7 +66,7 @@ HEADER = """<header class="header" id="header">
 </header>
 """
 
-FOOTER = """<footer class="footer pattern-dark">
+FOOTER = """<footer class="footer pattern-dark" data-header="dark">
   <div class="wrap footer-inner">
     <div>
       <p class="footer-name">株式会社スタジオレゾナンス</p>
