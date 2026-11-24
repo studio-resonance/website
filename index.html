@@ -77,56 +77,98 @@
       </div>
       <div class="filters" role="group" aria-label="カテゴリで絞り込み">
         <button type="button" data-filter="all" aria-pressed="true">すべて</button>
+        <button type="button" data-filter="CM（TV・WEB）" aria-pressed="false">CM（TV・WEB）</button>
+        <button type="button" data-filter="TV番組" aria-pressed="false">TV番組</button>
+        <button type="button" data-filter="行政" aria-pressed="false">行政</button>
         <button type="button" data-filter="PR動画" aria-pressed="false">PR動画</button>
-        <button type="button" data-filter="ブランドムービー" aria-pressed="false">ブランドムービー</button>
         <button type="button" data-filter="採用動画" aria-pressed="false">採用動画</button>
         <button type="button" data-filter="セミナー収録" aria-pressed="false">セミナー収録</button>
-        <button type="button" data-filter="広告" aria-pressed="false">広告</button>
         <button type="button" data-filter="YouTube" aria-pressed="false">YouTube</button>
       </div>
     </div>
 
-    <!-- 実績カード：1件 = 1つの <article>。data-cat はフィルターのボタン名と合わせる。
-         動画はYouTube/VimeoのURLが決まったら .thumb の中を iframe に差し替える -->
+    <!-- 実績カード：1件 = 1つの <article>。data-cat はフィルターのボタン名と合わせ、複数は「|」区切り -->
     <div class="works-grid">
-      <article class="work" data-cat="セミナー収録">
-        <div class="thumb">[サムネイル]</div>
-        <span class="cat">セミナー収録</span>
-        <h3 class="title">[金融機関] 事業者向けセミナー動画（全3本）</h3>
-        <span class="client">[クライアント名]</span>
+      <article class="work" data-cat="YouTube">
+        <button type="button" class="thumb" data-yt="wJYt0Q9Msig" aria-label="再生：OKINAWA VARIETY CLUB #12（南城市ドライブ編）"><img src="https://i.ytimg.com/vi/wJYt0Q9Msig/hqdefault.jpg" alt="" loading="lazy"><span class="play" aria-hidden="true"></span></button>
+        <span class="cat">YouTube</span>
+        <h3 class="title">OKINAWA VARIETY CLUB #12（南城市ドライブ編）</h3>
+        <dl class="credit"><dt>クライアント</dt><dd>株式会社オリジンlil</dd><dt>担当</dt><dd>企画・撮影・編集</dd></dl>
       </article>
-      <article class="work" data-cat="採用動画">
-        <div class="thumb">[サムネイル]</div>
-        <span class="cat">採用動画</span>
-        <h3 class="title">[行政] 学生向け採用動画</h3>
-        <span class="client">[クライアント名]</span>
+      <article class="work" data-cat="CM（TV・WEB）">
+        <button type="button" class="thumb" data-yt="fcy1TQOVaUE" aria-label="再生：沖縄手ぶら観光 〜手荷物から解放されよう〜"><img src="https://i.ytimg.com/vi/fcy1TQOVaUE/hqdefault.jpg" alt="" loading="lazy"><span class="play" aria-hidden="true"></span></button>
+        <span class="cat">CM（TV・WEB）</span>
+        <h3 class="title">沖縄手ぶら観光 〜手荷物から解放されよう〜</h3>
+        <dl class="credit"><dt>クライアント</dt><dd>沖縄県</dd><dt>広告代理店</dt><dd>アカネクリエーション</dd><dt>制作・編集</dt><dd>株式会社coeb</dd><dt>担当</dt><dd>撮影</dd></dl>
       </article>
-      <article class="work" data-cat="ブランドムービー">
-        <div class="thumb">[サムネイル]</div>
-        <span class="cat">ブランドムービー</span>
-        <h3 class="title">[企業] ブランドムービー（京都ロケ）</h3>
-        <span class="client">[クライアント名]</span>
+      <article class="work" data-cat="CM（TV・WEB）">
+        <button type="button" class="thumb" data-yt="KiRyhjlhw9g" aria-label="再生：沖縄ナビ TVCM 15秒"><img src="https://i.ytimg.com/vi/KiRyhjlhw9g/hqdefault.jpg" alt="" loading="lazy"><span class="play" aria-hidden="true"></span></button>
+        <span class="cat">CM（TV・WEB）</span>
+        <h3 class="title">沖縄ナビ TVCM 15秒</h3>
+        <dl class="credit"><dt>クライアント</dt><dd>琉球朝日放送</dd><dt>担当</dt><dd>企画・撮影・編集</dd></dl>
       </article>
-      <article class="work" data-cat="広告">
-        <div class="thumb">[サムネイル]</div>
-        <span class="cat">広告</span>
-        <h3 class="title">[飲食店] 国際通りストリートビジョン広告</h3>
-        <span class="client">[クライアント名]</span>
+      <article class="work" data-cat="行政">
+        <button type="button" class="thumb" data-yt="WJ4gNoupltg" aria-label="再生：与那原町民学生マイカのマイナンバーカード奮闘記"><img src="https://i.ytimg.com/vi/WJ4gNoupltg/hqdefault.jpg" alt="" loading="lazy"><span class="play" aria-hidden="true"></span></button>
+        <span class="cat">行政</span>
+        <h3 class="title">与那原町民学生マイカのマイナンバーカード奮闘記</h3>
+        <dl class="credit"><dt>クライアント</dt><dd>与那原町</dd><dt>広告代理店</dt><dd>アカネクリエーション</dd><dt>担当</dt><dd>編集</dd></dl>
+      </article>
+      <article class="work" data-cat="TV番組">
+        <button type="button" class="thumb" data-yt="VcnshFQMaeA" aria-label="再生：ハングリーナ #146 PICO食堂 × はる（毎週木曜 18:55 OA）"><img src="https://i.ytimg.com/vi/VcnshFQMaeA/hqdefault.jpg" alt="" loading="lazy"><span class="play" aria-hidden="true"></span></button>
+        <span class="cat">TV番組</span>
+        <h3 class="title">ハングリーナ #146 PICO食堂 × はる（毎週木曜 18:55 OA）</h3>
+        <dl class="credit"><dt>クライアント</dt><dd>琉球朝日放送株式会社</dd><dt>担当</dt><dd>企画・撮影・編集</dd></dl>
+      </article>
+      <article class="work" data-cat="行政|セミナー収録">
+        <button type="button" class="thumb" data-yt="nHRcDff89L0" aria-label="再生：ゼロからわかる！生成AI活用セミナー ダイジェスト"><img src="https://i.ytimg.com/vi/nHRcDff89L0/hqdefault.jpg" alt="" loading="lazy"><span class="play" aria-hidden="true"></span></button>
+        <span class="cat">行政／セミナー収録</span>
+        <h3 class="title">ゼロからわかる！生成AI活用セミナー ダイジェスト</h3>
+        <dl class="credit"><dt>クライアント</dt><dd>沖縄振興開発金融公庫</dd><dt>担当</dt><dd>撮影・編集</dd></dl>
+      </article>
+      <article class="work" data-cat="行政|PR動画">
+        <button type="button" class="thumb" data-yt="ImRmE3Baxdk" aria-label="再生：お取引先インタビュー 株式会社東和 様"><img src="https://i.ytimg.com/vi/ImRmE3Baxdk/hqdefault.jpg" alt="" loading="lazy"><span class="play" aria-hidden="true"></span></button>
+        <span class="cat">行政／PR動画</span>
+        <h3 class="title">お取引先インタビュー 株式会社東和 様</h3>
+        <dl class="credit"><dt>クライアント</dt><dd>沖縄振興開発金融公庫</dd><dt>担当</dt><dd>撮影・編集</dd></dl>
+      </article>
+      <article class="work" data-cat="行政">
+        <button type="button" class="thumb" data-yt="Jy66FlF_hdo" aria-label="再生：マイストーリー「舞台裏の名役者」"><img src="https://i.ytimg.com/vi/Jy66FlF_hdo/hqdefault.jpg" alt="" loading="lazy"><span class="play" aria-hidden="true"></span></button>
+        <span class="cat">行政</span>
+        <h3 class="title">マイストーリー「舞台裏の名役者」</h3>
+        <dl class="credit"><dt>クライアント</dt><dd>沖縄観光コンベンションビューロー</dd><dt>広告代理店</dt><dd>アカネクリエーション</dd><dt>制作</dt><dd>株式会社coeb</dd><dt>担当</dt><dd>撮影・編集</dd></dl>
       </article>
       <article class="work" data-cat="PR動画">
-        <div class="thumb">[サムネイル]</div>
+        <button type="button" class="thumb" data-yt="QKsosNdOeM4" aria-label="再生：ニューヨーク・メッツ 千賀滉大投手 ラプソード解説動画"><img src="https://i.ytimg.com/vi/QKsosNdOeM4/hqdefault.jpg" alt="" loading="lazy"><span class="play" aria-hidden="true"></span></button>
         <span class="cat">PR動画</span>
-        <h3 class="title">[公的団体] 事業紹介動画</h3>
-        <span class="client">[クライアント名]</span>
+        <h3 class="title">ニューヨーク・メッツ 千賀滉大投手 ラプソード解説動画</h3>
+        <dl class="credit"><dt>クライアント</dt><dd>株式会社Rapsodo Japan</dd><dt>担当</dt><dd>撮影・編集</dd></dl>
       </article>
-      <article class="work" data-cat="YouTube">
-        <div class="thumb">[サムネイル]</div>
-        <span class="cat">YouTube</span>
-        <h3 class="title">[番組名] YouTubeバラエティ番組</h3>
-        <span class="client">撮影・編集</span>
+      <article class="work" data-cat="PR動画">
+        <button type="button" class="thumb" data-yt="IQl8O3Yff38" aria-label="再生：Awich Know The World 2024"><img src="https://i.ytimg.com/vi/IQl8O3Yff38/hqdefault.jpg" alt="" loading="lazy"><span class="play" aria-hidden="true"></span></button>
+        <span class="cat">PR動画</span>
+        <h3 class="title">Awich Know The World 2024</h3>
+        <dl class="credit"><dt>クライアント</dt><dd>Hellow World株式会社</dd><dt>担当</dt><dd>撮影・編集</dd></dl>
+      </article>
+      <article class="work" data-cat="行政|PR動画">
+        <button type="button" class="thumb" data-yt="TeuLoEbjOdw" aria-label="再生：アントレまちなか留学 in 沖縄"><img src="https://i.ytimg.com/vi/TeuLoEbjOdw/hqdefault.jpg" alt="" loading="lazy"><span class="play" aria-hidden="true"></span></button>
+        <span class="cat">行政／PR動画</span>
+        <h3 class="title">アントレまちなか留学 in 沖縄</h3>
+        <dl class="credit"><dt>クライアント</dt><dd>北海道大学</dd><dt>担当</dt><dd>撮影・編集</dd></dl>
+      </article>
+      <article class="work" data-cat="CM（TV・WEB）">
+        <a class="thumb thumb-ig" href="https://www.instagram.com/p/C1IzNN4uRj7/" target="_blank" rel="noopener">Instagramで見る<span aria-hidden="true"> ↗</span></a>
+        <span class="cat">CM（TV・WEB）</span>
+        <h3 class="title">沖縄国際大学校友会 CM</h3>
+        <dl class="credit"><dt>クライアント</dt><dd>沖縄国際大学校友会</dd><dt>広告代理店</dt><dd>アカネクリエーション</dd><dt>担当</dt><dd>撮影・編集</dd></dl>
+      </article>
+      <article class="work" data-cat="行政|採用動画">
+        <button type="button" class="thumb" data-yt="a-ehUP8cJRs" aria-label="再生：沖縄県 獣医師採用 家畜保健衛生所篇"><img src="https://i.ytimg.com/vi/a-ehUP8cJRs/hqdefault.jpg" alt="" loading="lazy"><span class="play" aria-hidden="true"></span></button>
+        <span class="cat">行政／採用動画</span>
+        <h3 class="title">沖縄県 獣医師採用 家畜保健衛生所篇</h3>
+        <dl class="credit"><dt>クライアント</dt><dd>沖縄県</dd><dt>担当</dt><dd>企画・撮影・編集</dd></dl>
       </article>
     </div>
-  </div>
+    </div>
 </section>
 
 <section class="sec sec-light" id="service">

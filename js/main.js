@@ -6,7 +6,7 @@ document.querySelectorAll('.filters button').forEach(function (btn) {
       b.setAttribute('aria-pressed', b === btn ? 'true' : 'false');
     });
     document.querySelectorAll('.work').forEach(function (w) {
-      w.hidden = !(f === 'all' || w.dataset.cat === f);
+      w.hidden = !(f === 'all' || w.dataset.cat.split('|').indexOf(f) !== -1);
     });
   });
 });
@@ -35,3 +35,18 @@ if (form) {
     });
   });
 }
+
+// 実績サムネイルをクリックでその場再生（YouTube）
+document.querySelectorAll('.thumb[data-yt]').forEach(function (b) {
+  b.addEventListener('click', function () {
+    var f = document.createElement('iframe');
+    f.src = 'https://www.youtube-nocookie.com/embed/' + b.dataset.yt + '?autoplay=1&rel=0';
+    f.title = b.getAttribute('aria-label');
+    f.allow = 'autoplay; encrypted-media; picture-in-picture';
+    f.allowFullscreen = true;
+    var w = document.createElement('div');
+    w.className = 'thumb';
+    w.appendChild(f);
+    b.replaceWith(w);
+  });
+});
