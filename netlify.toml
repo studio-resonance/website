@@ -1,0 +1,22 @@
+[build]
+  publish = "."
+
+# 旧URL（STUDIO時代のページ名）からの転送
+[[redirects]]
+  from = "/company"
+  to = "/#company"
+  status = 301
+[[redirects]]
+  from = "/service"
+  to = "/#service"
+  status = 301
+[[redirects]]
+  from = "/contact"
+  to = "/#contact"
+  status = 301
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
