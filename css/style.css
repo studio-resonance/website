@@ -142,3 +142,4 @@ img,iframe,video{max-width:100%;display:block}
   .profile dd{padding-top:4px}
   .page h1{font-size:36px}
 }
+.form-status{margin:0;color:var(--sub);font-size:14px;min-height:1em}
