@@ -73,10 +73,11 @@
     update();
   }
 
-  // ---- ショームービー（背景で音なし自動再生） ----
+  // ---- ショームービー（背景で音なし自動再生。スマホでは再生しない） ----
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var heroMedia = document.querySelector('.hero-media[data-yt]');
-  if (heroMedia && !reduce) {
+  var isPhone = window.matchMedia && window.matchMedia('(max-width: 640px)').matches;
+  if (heroMedia && !reduce && !isPhone) {
     var id = heroMedia.dataset.yt;
     var bg = document.createElement('iframe');
     bg.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&mute=1&loop=1&playlist=' + id +
@@ -98,24 +99,6 @@
     window.addEventListener('resize', cover);
     // 読み込み直後に出るYouTubeの表示を見せないよう、少し待ってからフェードイン
     bg.addEventListener('load', function () { setTimeout(function () { heroMedia.classList.add('is-playing'); }, 2500); });
-  }
-
-  // ---- ショームービー（音ありで全画面再生） ----
-  var modal = document.getElementById('reel-modal');
-  var opener = document.querySelector('.reel-open');
-  if (modal && opener && modal.showModal) {
-    var frame = modal.querySelector('.reel-frame');
-    var close = function () { modal.close(); };
-    opener.addEventListener('click', function () {
-      frame.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + opener.dataset.reel +
-        '?autoplay=1&rel=0&playsinline=1" title="ショームービー" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>';
-      modal.showModal();
-    });
-    modal.querySelector('.reel-close').addEventListener('click', close);
-    modal.addEventListener('click', function (e) { if (e.target === modal) close(); });
-    modal.addEventListener('close', function () { frame.innerHTML = ''; opener.focus(); });
-  } else if (opener) {
-    opener.addEventListener('click', function () { window.open('https://www.youtube.com/watch?v=' + opener.dataset.reel, '_blank', 'noopener'); });
   }
 
   // ---- サムネイルをクリックでその場再生（YouTube） ----
