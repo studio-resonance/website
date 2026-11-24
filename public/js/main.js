@@ -55,6 +55,24 @@
     reveals.forEach(function (el) { el.classList.add('is-in'); });
   }
 
+  // ---- 進行表（いま見ているセクションを水色に） ----
+  var shotLinks = document.querySelectorAll('.shotlist a');
+  var scenes = document.querySelectorAll('[data-scene]');
+  if (shotLinks.length && scenes.length) {
+    var update = function () {
+      var line = window.innerHeight * 0.4, current = 0;
+      scenes.forEach(function (s, i) { if (s.getBoundingClientRect().top <= line) current = i; });
+      shotLinks.forEach(function (a, i) {
+        a.classList.toggle('is-current', i === current);
+        a.classList.toggle('is-done', i < current);
+        if (i === current) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current');
+      });
+    };
+    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    update();
+  }
+
   // ---- サムネイルをクリックでその場再生（YouTube） ----
   document.querySelectorAll('.thumb[data-yt]').forEach(function (b) {
     b.addEventListener('click', function () {

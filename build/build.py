@@ -69,7 +69,7 @@ HEADER = """<header class="header" id="header">
 FOOTER = """<footer class="footer pattern-dark">
   <div class="wrap footer-inner">
     <div>
-      <p class="logo">STUDIO RESONANCE</p>
+      <p class="footer-name">株式会社スタジオレゾナンス</p>
       <p class="footer-addr">沖縄県那覇市首里汀良町2-7-20 あしゃぎガーデン102</p>
     </div>
     <nav aria-label="フッターメニュー">
@@ -150,7 +150,7 @@ write("works/index.html",
       + "</head>\n<body>\n" + HEADER + f"""<main class="page-works">
 <section class="sec pattern-light">
   <div class="wrap">
-    <div class="sec-head">
+    <div class="sec-head reveal">
       <div>
         <h1 class="sec-en">WORKS</h1>
         <p class="sec-ja">制作実績</p>
@@ -158,7 +158,7 @@ write("works/index.html",
       {filters()}
     </div>
     {works_grid()}
-    <div class="more"><a class="btn btn-accent" href="/#contact">映像の相談をする</a></div>
+    <div class="more reveal"><a class="btn btn-accent" href="/#contact">映像の相談をする</a></div>
   </div>
 </section>
 </main>

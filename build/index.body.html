@@ -1,6 +1,6 @@
 <main>
 
-<section class="hero" id="top">
+<section class="hero" id="top" data-scene="01" data-scene-name="OPENING">
   <div class="hero-media">
     <!-- ショーリール：YouTubeの動画IDが決まったら、下のプレースホルダーを次の1行に差し替える
     <iframe src="https://www.youtube-nocookie.com/embed/動画ID?autoplay=1&mute=1&loop=1&playlist=動画ID&controls=0&playsinline=1&rel=0" title="ショーリール" allow="autoplay; encrypted-media" tabindex="-1"></iframe>
@@ -10,7 +10,7 @@
       <span>[ショーリール動画｜30秒・無音・自動ループ再生]</span>
     </div>
   </div>
-  <div class="wrap hero-body">
+  <div class="wrap hero-body reveal">
     <p class="eyebrow">VIDEO PRODUCTION / OKINAWA</p>
     <h1>想いが、響く映像を。</h1>
     <p class="lead">企画・撮影・編集まで一貫して手がける、沖縄の映像制作会社です。企業PR、採用、セミナー、広告まで。伝えたい相手に、確かに届く映像をつくります。</p>
@@ -21,73 +21,54 @@
   </div>
 </section>
 
-<section class="clients" aria-label="主なお取引先">
-  <div class="wrap clients-inner">
-    <p class="label">主なお取引先</p>
-    <ul>
-      <li>金融機関</li><li>行政・公的機関</li><li>医療・福祉団体</li><li>企業・スタートアップ</li><li>飲食・観光</li>
-    </ul>
-  </div>
-</section>
-
-<section class="sec pattern-light" id="works">
+<section class="sec pattern-light" id="works" data-scene="02" data-scene-name="WORKS">
   <div class="wrap">
-    <div class="sec-head">
+    <div class="sec-head reveal">
       <div>
-        <p class="sec-en" aria-hidden="true">WORKS</p>
+        <p class="sec-no" aria-hidden="true">02</p>
+    <p class="sec-en" aria-hidden="true">WORKS</p>
         <h2 class="sec-ja">制作実績</h2>
       </div>
       {{WORKS_FILTERS}}
     </div>
     <!-- 実績は build/works.json で管理（build/build.py で生成） -->
     {{WORKS_GRID}}
-    <div class="more"><a class="btn btn-dark" id="works-more" href="/works/">実績一覧へ<span aria-hidden="true"> →</span></a></div>
+    <div class="more reveal"><a class="btn btn-dark" id="works-more" href="/works/">実績一覧へ<span aria-hidden="true"> →</span></a></div>
   </div>
 </section>
 
-<section class="sec sec-dark pattern-dark" id="service">
+<section class="sec sec-dark pattern-dark" id="service" data-scene="03" data-scene-name="SERVICE">
   <div class="wrap">
-    <p class="sec-en" aria-hidden="true">SERVICE</p>
-    <h2 class="sec-ja">事業内容</h2>
-    <p class="svc-lead">企画・撮影・編集までワンストップ。Sony FX3を中心としたシネマ機材で、沖縄県内外どこへでも伺います。</p>
+    <p class="sec-no reveal" aria-hidden="true">03</p>
+    <p class="sec-en reveal" aria-hidden="true">SERVICE</p>
+    <h2 class="sec-ja reveal">事業内容</h2>
+    <p class="svc-lead reveal">企画・撮影・編集までワンストップ。Sony FX3を中心としたシネマ機材で、沖縄県内外どこへでも伺います。</p>
     <div class="svc-grid">
-      <div class="svc"><p class="no">01</p><h3>企業PR・ブランドムービー</h3><p>事業や想いを伝える会社紹介・ブランド映像</p></div>
-      <div class="svc"><p class="no">02</p><h3>採用動画</h3><p>働く人の姿を通して、仕事の魅力を伝える映像</p></div>
-      <div class="svc"><p class="no">03</p><h3>セミナー・講演収録</h3><p>複数カメラでの収録と、配信・アーカイブ用の編集</p></div>
-      <div class="svc"><p class="no">04</p><h3>広告・SNS動画</h3><p>デジタルサイネージ、Instagram・YouTube広告など</p></div>
-      <div class="svc"><p class="no">05</p><h3>YouTube番組制作</h3><p>番組の撮影・編集、テロップ演出まで</p></div>
+      <div class="svc reveal"><p class="no">01</p><h3>企業PR・<br>ブランドムービー</h3><p>事業や想いを伝える会社紹介・ブランド映像</p></div>
+      <div class="svc reveal"><p class="no">02</p><h3>採用動画</h3><p>働く人の姿を通して、仕事の魅力を伝える映像</p></div>
+      <div class="svc reveal"><p class="no">03</p><h3>セミナー・<br>講演会収録</h3><p>複数カメラでの収録と、配信・アーカイブ用の編集</p></div>
+      <div class="svc reveal"><p class="no">04</p><h3>広告・SNS動画</h3><p>デジタルサイネージ、Instagram・YouTube広告など</p></div>
+      <div class="svc reveal"><p class="no">05</p><h3 class="nowrap">YouTube番組制作</h3><p>番組の撮影・編集、テロップ演出まで</p></div>
     </div>
-    <h3 class="flow-h">制作の流れ</h3>
+    <h3 class="flow-h reveal">制作の流れ</h3>
     <ol class="flow">
-      <li><span class="step">STEP 1</span><strong>ヒアリング</strong><span class="d">目的・ターゲット・予算・納期を伺います</span></li>
-      <li><span class="step">STEP 2</span><strong>企画・お見積り</strong><span class="d">構成案・絵コンテとお見積書をご提出</span></li>
-      <li><span class="step">STEP 3</span><strong>撮影</strong><span class="d">ロケハンから当日の進行まで対応</span></li>
-      <li><span class="step">STEP 4</span><strong>編集・確認</strong><span class="d">テロップ・BGM・カラー調整、修正対応</span></li>
-      <li><span class="step">STEP 5</span><strong>納品</strong><span class="d">用途に合わせた形式でお届け</span></li>
+      <li class="reveal"><span class="step">STEP 1</span><strong>ヒアリング</strong><span class="d">目的・ターゲット・予算・納期を伺います</span></li>
+      <li class="reveal"><span class="step">STEP 2</span><strong>企画・お見積り</strong><span class="d">構成案・絵コンテとお見積書をご提出します</span></li>
+      <li class="reveal"><span class="step">STEP 3</span><strong>撮影</strong><span class="d">ロケハンから撮影当日の進行まで対応します</span></li>
+      <li class="reveal"><span class="step">STEP 4</span><strong>編集・確認</strong><span class="d">テロップ・BGM・カラー調整を行い、修正にも対応します</span></li>
+      <li class="reveal"><span class="step">STEP 5</span><strong>納品</strong><span class="d">用途に合わせた形式でお届けします</span></li>
     </ol>
   </div>
 </section>
 
-<section class="sec pattern-light" aria-labelledby="values-h">
-  <div class="wrap">
-    <p class="sec-en" aria-hidden="true">VALUES</p>
-    <h2 class="sec-ja" id="values-h">4つの行動指針</h2>
-    <div class="values">
-      <div><p class="en">FAIR</p><p class="ja">すべての人と公平・公正に向き合う。</p></div>
-      <div><p class="en">FUN</p><p class="ja">一つ一つの仕事を楽しむ。</p></div>
-      <div><p class="en">RESPECT</p><p class="ja">相手に敬意を払う。</p></div>
-      <div><p class="en">AFFIRM</p><p class="ja">ありとあらゆる人を肯定し、認める。</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="sec sec-dark pattern-dark" id="company">
+<section class="sec sec-dark pattern-dark" id="company" data-scene="04" data-scene-name="COMPANY">
   <div class="wrap company">
-    <div class="company-head">
-      <p class="sec-en" aria-hidden="true">COMPANY</p>
+    <div class="company-head reveal">
+      <p class="sec-no" aria-hidden="true">04</p>
+    <p class="sec-en" aria-hidden="true">COMPANY</p>
       <h2 class="sec-ja">会社概要</h2>
     </div>
-    <dl class="profile">
+    <dl class="profile reveal">
       <dt>会社名</dt><dd>株式会社スタジオレゾナンス</dd>
       <dt>設立</dt><dd>2022年2月</dd>
       <dt>所在地</dt><dd>〒903-0806 沖縄県那覇市首里汀良町2-7-20 あしゃぎガーデン102</dd>
@@ -97,12 +78,13 @@
   </div>
 </section>
 
-<section class="sec pattern-light" id="contact">
+<section class="sec pattern-light" id="contact" data-scene="05" data-scene-name="CONTACT">
   <div class="wrap contact">
-    <p class="sec-en" aria-hidden="true">CONTACT</p>
-    <h2 class="sec-ja">お問い合わせ</h2>
-    <p class="contact-lead">映像制作のご相談・お見積りはお気軽にどうぞ。内容が固まっていない段階でも構いません。3営業日以内にご返信します。</p>
-    <form class="form" id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+    <p class="sec-no reveal" aria-hidden="true">05</p>
+    <p class="sec-en reveal" aria-hidden="true">CONTACT</p>
+    <h2 class="sec-ja reveal">お問い合わせ</h2>
+    <p class="contact-lead reveal">映像制作のご相談・お見積りはお気軽にどうぞ。内容が固まっていない段階でも構いません。3営業日以内にご返信します。</p>
+    <form class="form reveal" id="contact-form" action="https://api.web3forms.com/submit" method="POST">
       <input type="hidden" name="access_key" value="6b99a2ab-497d-4648-a3f3-663fbdc9a202">
       <input type="hidden" name="subject" value="【サイトからのお問い合わせ】スタジオレゾナンス">
       <input type="hidden" name="from_name" value="STUDIO RESONANCE サイト">
@@ -131,3 +113,14 @@
 </section>
 
 </main>
+
+<aside class="shotlist" aria-label="ページの進行表">
+  <p class="shotlist-h">SHOT LIST</p>
+  <ol>
+    <li><a href="#top"><span class="n">01</span>OPENING</a></li>
+    <li><a href="#works"><span class="n">02</span>WORKS</a></li>
+    <li><a href="#service"><span class="n">03</span>SERVICE</a></li>
+    <li><a href="#company"><span class="n">04</span>COMPANY</a></li>
+    <li><a href="#contact"><span class="n">05</span>CONTACT</a></li>
+  </ol>
+</aside>
