@@ -3,7 +3,6 @@
 Netlifyで公開している静的サイトです（ビルド不要）。mainブランチへの反映で自動公開されます。
 
 - `index.html` … トップページ（実績は `#works` の `<article class="work">` を追加・編集）
-- `regulations/` … 各種規程（PDFは `docs/` に置く）
 - `privacy/` … プライバシーポリシー
 - `thanks/` … フォーム送信完了ページ
 - `css/style.css` / `js/main.js`

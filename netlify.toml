@@ -11,6 +11,10 @@
   to = "/#service"
   status = 301
 [[redirects]]
+  from = "/regulations"
+  to = "/#company"
+  status = 301
+[[redirects]]
   from = "/contact"
   to = "/#contact"
   status = 301
