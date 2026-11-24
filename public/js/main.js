@@ -73,6 +73,41 @@
     update();
   }
 
+  // ---- ショームービー（背景で音なし自動再生） ----
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var heroMedia = document.querySelector('.hero-media[data-yt]');
+  if (heroMedia && !reduce) {
+    var id = heroMedia.dataset.yt;
+    var bg = document.createElement('iframe');
+    bg.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&mute=1&loop=1&playlist=' + id +
+      '&controls=0&playsinline=1&rel=0&modestbranding=1&disablekb=1&iv_load_policy=3&fs=0';
+    bg.title = 'ショームービー（背景）';
+    bg.allow = 'autoplay; encrypted-media';
+    bg.tabIndex = -1;
+    bg.setAttribute('aria-hidden', 'true');
+    heroMedia.appendChild(bg);
+    // 読み込み直後に出るYouTubeの表示を見せないよう、少し待ってからフェードイン
+    bg.addEventListener('load', function () { setTimeout(function () { heroMedia.classList.add('is-playing'); }, 2500); });
+  }
+
+  // ---- ショームービー（音ありで全画面再生） ----
+  var modal = document.getElementById('reel-modal');
+  var opener = document.querySelector('.reel-open');
+  if (modal && opener && modal.showModal) {
+    var frame = modal.querySelector('.reel-frame');
+    var close = function () { modal.close(); };
+    opener.addEventListener('click', function () {
+      frame.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + opener.dataset.reel +
+        '?autoplay=1&rel=0&playsinline=1" title="ショームービー" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>';
+      modal.showModal();
+    });
+    modal.querySelector('.reel-close').addEventListener('click', close);
+    modal.addEventListener('click', function (e) { if (e.target === modal) close(); });
+    modal.addEventListener('close', function () { frame.innerHTML = ''; opener.focus(); });
+  } else if (opener) {
+    opener.addEventListener('click', function () { window.open('https://www.youtube.com/watch?v=' + opener.dataset.reel, '_blank', 'noopener'); });
+  }
+
   // ---- サムネイルをクリックでその場再生（YouTube） ----
   document.querySelectorAll('.thumb[data-yt]').forEach(function (b) {
     b.addEventListener('click', function () {

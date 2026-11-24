@@ -48,15 +48,28 @@ img,iframe,video{max-width:100%;display:block}
 
 /* ---- ヒーロー（黒） ---- */
 .hero{position:relative;min-height:min(760px,88vh);display:flex;align-items:flex-end;background:var(--black);color:var(--white);overflow:hidden}
-.hero-media{position:absolute;inset:0;background-image:var(--pattern-dark)}
-.hero-media iframe,.hero-media video{position:absolute;top:50%;left:50%;width:177.78vh;min-width:100%;height:56.25vw;min-height:100%;transform:translate(-50%,-50%);border:0;pointer-events:none}
-.hero-media::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(17,17,17,.85),rgba(17,17,17,.2))}
-.hero-ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding-top:120px;gap:12px;color:#8C8C8C;font-size:14px;letter-spacing:.1em;text-align:center}
-.hero-body{position:relative;width:100%;padding-bottom:88px}
+.hero-media{position:absolute;inset:0;background:#111 center/cover no-repeat;container-type:size}
+.hero-media iframe{opacity:0;transition:opacity 1.2s ease}
+.hero-media.is-playing iframe{opacity:1}
+.hero-media iframe,.hero-media video{position:absolute;top:50%;left:50%;width:max(100cqw,177.78cqh);height:max(100cqh,56.25cqw);transform:translate(-50%,-50%) scale(1.15);border:0;pointer-events:none}
+.hero-media::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(to top,rgba(17,17,17,.85) 0%,rgba(17,17,17,.35) 55%,rgba(17,17,17,.25) 100%)}
+/* 旧仮表示 */.hero-ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding-top:120px;gap:12px;color:#8C8C8C;font-size:14px;letter-spacing:.1em;text-align:center}
+.hero-body{position:relative;z-index:2;width:100%;padding-bottom:88px}
 .eyebrow{margin:0 0 16px;font-family:var(--en);letter-spacing:.3em;font-size:13px;color:var(--accent)}
 .hero h1{margin:0;font-size:clamp(36px,6vw,64px);line-height:1.3;font-weight:700;letter-spacing:.04em}
 .hero .lead{margin:24px 0 0;max-width:600px;font-size:17px;color:#DDDDDD}
 .cta{display:flex;flex-wrap:wrap;gap:16px;margin-top:40px}
+.reel-open{display:inline-flex;align-items:center;gap:12px;margin-top:28px;min-height:44px;padding:0;border:0;background:none;color:var(--white);font-family:var(--ja);font-size:15px;font-weight:700;cursor:pointer}
+.reel-open:hover{color:var(--accent)}
+.reel-icon{position:relative;width:44px;height:44px;border-radius:50%;border:2px solid currentColor;flex:none}
+.reel-icon::after{content:"";position:absolute;left:16px;top:12px;border-left:14px solid currentColor;border-top:9px solid transparent;border-bottom:9px solid transparent}
+.reel-modal{width:min(1200px,92vw);max-width:none;padding:0;border:0;border-radius:var(--radius);background:#000;overflow:visible}
+.reel-modal::backdrop{background:rgba(0,0,0,.85)}
+.reel-frame{aspect-ratio:16/9;border-radius:var(--radius);overflow:hidden}
+.reel-frame iframe{width:100%;height:100%;border:0}
+.reel-close{position:absolute;right:0;top:-56px;width:44px;height:44px;border:0;border-radius:var(--radius);background:var(--white);cursor:pointer}
+.reel-close span{position:absolute;left:12px;top:21px;width:20px;height:2px;background:var(--black)}
+.reel-close span:first-child{transform:rotate(45deg)}.reel-close span:last-child{transform:rotate(-45deg)}
 
 /* ---- セクション共通 ---- */
 .sec{padding:120px 0;overflow-x:clip}
@@ -198,7 +211,7 @@ img,iframe,video{max-width:100%;display:block}
   .header-inner{min-height:64px}
   .logo{font-size:15px;letter-spacing:.14em}
   .hero{min-height:600px}
-  .hero-ph{display:none}
+  /* 旧仮表示 */.hero-ph{display:none}
   .hero-body{padding-bottom:56px}
   .hero .lead{font-size:15px}
   .cta .btn{flex:1 1 100%}

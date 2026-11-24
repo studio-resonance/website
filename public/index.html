@@ -41,15 +41,8 @@
 <main>
 
 <section class="hero" id="top" data-scene="01" data-scene-name="OPENING">
-  <div class="hero-media">
-    <!-- ショーリール：YouTubeの動画IDが決まったら、下のプレースホルダーを次の1行に差し替える
-    <iframe src="https://www.youtube-nocookie.com/embed/動画ID?autoplay=1&mute=1&loop=1&playlist=動画ID&controls=0&playsinline=1&rel=0" title="ショーリール" allow="autoplay; encrypted-media" tabindex="-1"></iframe>
-    -->
-    <div class="hero-ph" aria-hidden="true">
-      <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="10"/><polygon points="10,8 16,12 10,16"/></svg>
-      <span>[ショーリール動画｜30秒・無音・自動ループ再生]</span>
-    </div>
-  </div>
+  <!-- ショームービー：動画を差し替えるときは data-yt の動画IDを変える -->
+  <div class="hero-media" data-yt="l7YSD0d0bCk" style="background-image:url('https://i.ytimg.com/vi/l7YSD0d0bCk/maxresdefault.jpg')"></div>
   <div class="wrap hero-body reveal">
     <p class="eyebrow">VIDEO PRODUCTION / OKINAWA</p>
     <h1>想いが、響く映像を。</h1>
@@ -58,6 +51,7 @@
       <a class="btn btn-accent" href="#works">制作実績を見る</a>
       <a class="btn btn-line" href="#contact">映像の相談をする</a>
     </div>
+    <button type="button" class="reel-open" data-reel="l7YSD0d0bCk"><span class="reel-icon" aria-hidden="true"></span>ショームービーを見る（音あり）</button>
   </div>
 </section>
 
@@ -241,6 +235,11 @@
 </section>
 
 </main>
+
+<dialog class="reel-modal" id="reel-modal" aria-label="ショームービー">
+  <button type="button" class="reel-close" aria-label="閉じる"><span></span><span></span></button>
+  <div class="reel-frame"></div>
+</dialog>
 
 <aside class="shotlist" aria-label="ページの進行表">
   <p class="shotlist-h">SHOT LIST</p>
