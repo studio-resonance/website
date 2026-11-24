@@ -86,6 +86,16 @@
     bg.tabIndex = -1;
     bg.setAttribute('aria-hidden', 'true');
     heroMedia.appendChild(bg);
+    // 画面サイズに関係なく、16:9の映像で背景を隙間なく覆う
+    var cover = function () {
+      var w = heroMedia.clientWidth, h = heroMedia.clientHeight;
+      var vw = Math.max(w, h * 16 / 9), vh = vw * 9 / 16;
+      if (vh < h) { vh = h; vw = h * 16 / 9; }
+      bg.style.width = Math.ceil(vw) + 'px';
+      bg.style.height = Math.ceil(vh) + 'px';
+    };
+    cover();
+    window.addEventListener('resize', cover);
     // 読み込み直後に出るYouTubeの表示を見せないよう、少し待ってからフェードイン
     bg.addEventListener('load', function () { setTimeout(function () { heroMedia.classList.add('is-playing'); }, 2500); });
   }
