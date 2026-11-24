@@ -9,7 +9,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="株式会社スタジオレゾナンス">
 <meta property="og:title" content="株式会社スタジオレゾナンス｜沖縄の映像制作会社">
-<meta property="og:description" content="企画・撮影・編集まで一貫して手がける、沖縄の映像制作会社です。">
+<meta property="og:description" content="株式会社スタジオレゾナンスは、沖縄・那覇を拠点に企画・撮影・編集まで一貫して手がける映像制作会社です。企業PR・ブランドムービー、採用動画、セミナー収録、広告・SNS動画、YouTube番組制作に対応します。">
 <meta property="og:url" content="https://re-son.jp/">
 <meta property="og:image" content="https://re-son.jp/images/ogp.jpg">
 <meta name="twitter:card" content="summary_large_image">
@@ -18,24 +18,26 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800&amp;family=Noto+Sans+JP:wght@400;500;700&amp;display=swap">
 <link rel="stylesheet" href="/css/style.css">
+<script>document.documentElement.classList.add('js')</script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Organization","name":"株式会社スタジオレゾナンス","alternateName":"STUDIO RESONANCE","url":"https://re-son.jp/","foundingDate":"2022-02","address":{"@type":"PostalAddress","postalCode":"903-0806","addressRegion":"沖縄県","addressLocality":"那覇市","streetAddress":"首里汀良町2-7-20 あしゃぎガーデン102","addressCountry":"JP"}}
 </script>
 </head>
 <body>
-
-<header class="header">
-  <div class="wrap">
+<header class="header" id="header">
+  <div class="wrap header-inner">
     <a class="logo" href="/">STUDIO RESONANCE</a>
-    <nav class="nav" aria-label="メインメニュー">
-      <a href="/#works">WORKS</a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="メニューを開く">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav" id="site-nav" aria-label="メインメニュー">
+      <a href="/works/">WORKS</a>
       <a href="/#service">SERVICE</a>
       <a href="/#company">COMPANY</a>
       <a class="btn btn-accent" href="/#contact">お問い合わせ</a>
     </nav>
   </div>
 </header>
-
 <main>
 
 <section class="hero" id="top">
@@ -44,11 +46,11 @@
     <iframe src="https://www.youtube-nocookie.com/embed/動画ID?autoplay=1&mute=1&loop=1&playlist=動画ID&controls=0&playsinline=1&rel=0" title="ショーリール" allow="autoplay; encrypted-media" tabindex="-1"></iframe>
     -->
     <div class="hero-ph" aria-hidden="true">
-      <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#8C8A84" stroke-width="1.2"><circle cx="12" cy="12" r="10"/><polygon points="10,8 16,12 10,16"/></svg>
+      <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="10"/><polygon points="10,8 16,12 10,16"/></svg>
       <span>[ショーリール動画｜30秒・無音・自動ループ再生]</span>
     </div>
   </div>
-  <div class="wrap">
+  <div class="wrap hero-body">
     <p class="eyebrow">VIDEO PRODUCTION / OKINAWA</p>
     <h1>想いが、響く映像を。</h1>
     <p class="lead">企画・撮影・編集まで一貫して手がける、沖縄の映像制作会社です。企業PR、採用、セミナー、広告まで。伝えたい相手に、確かに届く映像をつくります。</p>
@@ -60,7 +62,7 @@
 </section>
 
 <section class="clients" aria-label="主なお取引先">
-  <div class="wrap">
+  <div class="wrap clients-inner">
     <p class="label">主なお取引先</p>
     <ul>
       <li>金融機関</li><li>行政・公的機関</li><li>医療・福祉団体</li><li>企業・スタートアップ</li><li>飲食・観光</li>
@@ -68,7 +70,7 @@
   </div>
 </section>
 
-<section class="sec" id="works">
+<section class="sec pattern-light" id="works">
   <div class="wrap">
     <div class="sec-head">
       <div>
@@ -82,99 +84,99 @@
         <button type="button" data-filter="行政" aria-pressed="false">行政</button>
         <button type="button" data-filter="PR動画" aria-pressed="false">PR動画</button>
         <button type="button" data-filter="採用動画" aria-pressed="false">採用動画</button>
-        <button type="button" data-filter="セミナー収録" aria-pressed="false">セミナー収録</button>
+        <button type="button" data-filter="セミナー・講演会収録" aria-pressed="false">セミナー・講演会収録</button>
         <button type="button" data-filter="YouTube" aria-pressed="false">YouTube</button>
       </div>
     </div>
-
-    <!-- 実績カード：1件 = 1つの <article>。data-cat はフィルターのボタン名と合わせ、複数は「|」区切り -->
-    <div class="works-grid">
-      <article class="work" data-cat="YouTube">
+    <!-- 実績は build/works.json で管理（build/build.py で生成） -->
+    <div class="works-grid" data-limit="6">
+      <article class="work reveal" data-cat="YouTube">
         <button type="button" class="thumb" data-yt="wJYt0Q9Msig" aria-label="再生：OKINAWA VARIETY CLUB #12（南城市ドライブ編）"><img src="https://i.ytimg.com/vi/wJYt0Q9Msig/hqdefault.jpg" alt="" loading="lazy"><span class="play" aria-hidden="true"></span></button>
         <span class="cat">YouTube</span>
         <h3 class="title">OKINAWA VARIETY CLUB #12（南城市ドライブ編）</h3>
         <dl class="credit"><dt>クライアント</dt><dd>株式会社オリジンlil</dd><dt>担当</dt><dd>企画・撮影・編集</dd></dl>
       </article>
-      <article class="work" data-cat="CM（TV・WEB）">
+      <article class="work reveal" data-cat="CM（TV・WEB）">
         <button type="button" class="thumb" data-yt="fcy1TQOVaUE" aria-label="再生：沖縄手ぶら観光 〜手荷物から解放されよう〜"><img src="https://i.ytimg.com/vi/fcy1TQOVaUE/hqdefault.jpg" alt="" loading="lazy"><span class="play" aria-hidden="true"></span></button>
         <span class="cat">CM（TV・WEB）</span>
         <h3 class="title">沖縄手ぶら観光 〜手荷物から解放されよう〜</h3>
         <dl class="credit"><dt>クライアント</dt><dd>沖縄県</dd><dt>広告代理店</dt><dd>アカネクリエーション</dd><dt>制作・編集</dt><dd>株式会社coeb</dd><dt>担当</dt><dd>撮影</dd></dl>
       </article>
-      <article class="work" data-cat="CM（TV・WEB）">
+      <article class="work reveal" data-cat="CM（TV・WEB）">
         <button type="button" class="thumb" data-yt="KiRyhjlhw9g" aria-label="再生：沖縄ナビ TVCM 15秒"><img src="https://i.ytimg.com/vi/KiRyhjlhw9g/hqdefault.jpg" alt="" loading="lazy"><span class="play" aria-hidden="true"></span></button>
         <span class="cat">CM（TV・WEB）</span>
         <h3 class="title">沖縄ナビ TVCM 15秒</h3>
         <dl class="credit"><dt>クライアント</dt><dd>琉球朝日放送</dd><dt>担当</dt><dd>企画・撮影・編集</dd></dl>
       </article>
-      <article class="work" data-cat="行政">
+      <article class="work reveal" data-cat="行政">
         <button type="button" class="thumb" data-yt="WJ4gNoupltg" aria-label="再生：与那原町民学生マイカのマイナンバーカード奮闘記"><img src="https://i.ytimg.com/vi/WJ4gNoupltg/hqdefault.jpg" alt="" loading="lazy"><span class="play" aria-hidden="true"></span></button>
         <span class="cat">行政</span>
         <h3 class="title">与那原町民学生マイカのマイナンバーカード奮闘記</h3>
         <dl class="credit"><dt>クライアント</dt><dd>与那原町</dd><dt>広告代理店</dt><dd>アカネクリエーション</dd><dt>担当</dt><dd>編集</dd></dl>
       </article>
-      <article class="work" data-cat="TV番組">
+      <article class="work reveal" data-cat="TV番組">
         <button type="button" class="thumb" data-yt="VcnshFQMaeA" aria-label="再生：ハングリーナ #146 PICO食堂 × はる（毎週木曜 18:55 OA）"><img src="https://i.ytimg.com/vi/VcnshFQMaeA/hqdefault.jpg" alt="" loading="lazy"><span class="play" aria-hidden="true"></span></button>
         <span class="cat">TV番組</span>
         <h3 class="title">ハングリーナ #146 PICO食堂 × はる（毎週木曜 18:55 OA）</h3>
         <dl class="credit"><dt>クライアント</dt><dd>琉球朝日放送株式会社</dd><dt>担当</dt><dd>企画・撮影・編集</dd></dl>
       </article>
-      <article class="work" data-cat="行政|セミナー収録">
+      <article class="work reveal" data-cat="行政|セミナー・講演会収録">
         <button type="button" class="thumb" data-yt="nHRcDff89L0" aria-label="再生：ゼロからわかる！生成AI活用セミナー ダイジェスト"><img src="https://i.ytimg.com/vi/nHRcDff89L0/hqdefault.jpg" alt="" loading="lazy"><span class="play" aria-hidden="true"></span></button>
-        <span class="cat">行政／セミナー収録</span>
+        <span class="cat">行政／セミナー・講演会収録</span>
         <h3 class="title">ゼロからわかる！生成AI活用セミナー ダイジェスト</h3>
         <dl class="credit"><dt>クライアント</dt><dd>沖縄振興開発金融公庫</dd><dt>担当</dt><dd>撮影・編集</dd></dl>
       </article>
-      <article class="work" data-cat="行政|PR動画">
+      <article class="work reveal" data-cat="行政|PR動画">
         <button type="button" class="thumb" data-yt="ImRmE3Baxdk" aria-label="再生：お取引先インタビュー 株式会社東和 様"><img src="https://i.ytimg.com/vi/ImRmE3Baxdk/hqdefault.jpg" alt="" loading="lazy"><span class="play" aria-hidden="true"></span></button>
         <span class="cat">行政／PR動画</span>
         <h3 class="title">お取引先インタビュー 株式会社東和 様</h3>
         <dl class="credit"><dt>クライアント</dt><dd>沖縄振興開発金融公庫</dd><dt>担当</dt><dd>撮影・編集</dd></dl>
       </article>
-      <article class="work" data-cat="行政">
+      <article class="work reveal" data-cat="行政">
         <button type="button" class="thumb" data-yt="Jy66FlF_hdo" aria-label="再生：マイストーリー「舞台裏の名役者」"><img src="https://i.ytimg.com/vi/Jy66FlF_hdo/hqdefault.jpg" alt="" loading="lazy"><span class="play" aria-hidden="true"></span></button>
         <span class="cat">行政</span>
         <h3 class="title">マイストーリー「舞台裏の名役者」</h3>
         <dl class="credit"><dt>クライアント</dt><dd>沖縄観光コンベンションビューロー</dd><dt>広告代理店</dt><dd>アカネクリエーション</dd><dt>制作</dt><dd>株式会社coeb</dd><dt>担当</dt><dd>撮影・編集</dd></dl>
       </article>
-      <article class="work" data-cat="PR動画">
+      <article class="work reveal" data-cat="PR動画">
         <button type="button" class="thumb" data-yt="QKsosNdOeM4" aria-label="再生：ニューヨーク・メッツ 千賀滉大投手 ラプソード解説動画"><img src="https://i.ytimg.com/vi/QKsosNdOeM4/hqdefault.jpg" alt="" loading="lazy"><span class="play" aria-hidden="true"></span></button>
         <span class="cat">PR動画</span>
         <h3 class="title">ニューヨーク・メッツ 千賀滉大投手 ラプソード解説動画</h3>
         <dl class="credit"><dt>クライアント</dt><dd>株式会社Rapsodo Japan</dd><dt>担当</dt><dd>撮影・編集</dd></dl>
       </article>
-      <article class="work" data-cat="PR動画">
+      <article class="work reveal" data-cat="PR動画">
         <button type="button" class="thumb" data-yt="IQl8O3Yff38" aria-label="再生：Awich Know The World 2024"><img src="https://i.ytimg.com/vi/IQl8O3Yff38/hqdefault.jpg" alt="" loading="lazy"><span class="play" aria-hidden="true"></span></button>
         <span class="cat">PR動画</span>
         <h3 class="title">Awich Know The World 2024</h3>
-        <dl class="credit"><dt>クライアント</dt><dd>Hellow World株式会社</dd><dt>担当</dt><dd>撮影・編集</dd></dl>
+        <dl class="credit"><dt>クライアント</dt><dd>Hello World株式会社</dd><dt>担当</dt><dd>撮影・編集</dd></dl>
       </article>
-      <article class="work" data-cat="行政|PR動画">
+      <article class="work reveal" data-cat="行政|PR動画">
         <button type="button" class="thumb" data-yt="TeuLoEbjOdw" aria-label="再生：アントレまちなか留学 in 沖縄"><img src="https://i.ytimg.com/vi/TeuLoEbjOdw/hqdefault.jpg" alt="" loading="lazy"><span class="play" aria-hidden="true"></span></button>
         <span class="cat">行政／PR動画</span>
         <h3 class="title">アントレまちなか留学 in 沖縄</h3>
         <dl class="credit"><dt>クライアント</dt><dd>北海道大学</dd><dt>担当</dt><dd>撮影・編集</dd></dl>
       </article>
-      <article class="work" data-cat="CM（TV・WEB）">
-        <a class="thumb thumb-ig" href="https://www.instagram.com/p/C1IzNN4uRj7/" target="_blank" rel="noopener">Instagramで見る<span aria-hidden="true"> ↗</span></a>
+      <article class="work reveal" data-cat="CM（TV・WEB）">
+        <div class="thumb thumb-ig"><iframe src="https://www.instagram.com/reel/C1IzNN4uRj7/embed/" title="沖縄国際大学校友会 CM（Instagram）" loading="lazy" scrolling="no" allowtransparency="true"></iframe></div>
         <span class="cat">CM（TV・WEB）</span>
         <h3 class="title">沖縄国際大学校友会 CM</h3>
         <dl class="credit"><dt>クライアント</dt><dd>沖縄国際大学校友会</dd><dt>広告代理店</dt><dd>アカネクリエーション</dd><dt>担当</dt><dd>撮影・編集</dd></dl>
       </article>
-      <article class="work" data-cat="行政|採用動画">
+      <article class="work reveal" data-cat="行政|採用動画">
         <button type="button" class="thumb" data-yt="a-ehUP8cJRs" aria-label="再生：沖縄県 獣医師採用 家畜保健衛生所篇"><img src="https://i.ytimg.com/vi/a-ehUP8cJRs/hqdefault.jpg" alt="" loading="lazy"><span class="play" aria-hidden="true"></span></button>
         <span class="cat">行政／採用動画</span>
         <h3 class="title">沖縄県 獣医師採用 家畜保健衛生所篇</h3>
         <dl class="credit"><dt>クライアント</dt><dd>沖縄県</dd><dt>担当</dt><dd>企画・撮影・編集</dd></dl>
       </article>
     </div>
-    </div>
+    <div class="more"><a class="btn btn-dark" id="works-more" href="/works/">実績一覧へ<span aria-hidden="true"> →</span></a></div>
+  </div>
 </section>
 
-<section class="sec sec-light" id="service">
+<section class="sec sec-dark pattern-dark" id="service">
   <div class="wrap">
     <p class="sec-en" aria-hidden="true">SERVICE</p>
-    <h2 class="sec-ja" style="margin-bottom:48px">事業内容</h2>
+    <h2 class="sec-ja">事業内容</h2>
     <p class="svc-lead">企画・撮影・編集までワンストップ。Sony FX3を中心としたシネマ機材で、沖縄県内外どこへでも伺います。</p>
     <div class="svc-grid">
       <div class="svc"><p class="no">01</p><h3>企業PR・ブランドムービー</h3><p>事業や想いを伝える会社紹介・ブランド映像</p></div>
@@ -194,10 +196,10 @@
   </div>
 </section>
 
-<section class="sec" aria-labelledby="values-h">
+<section class="sec pattern-light" aria-labelledby="values-h">
   <div class="wrap">
     <p class="sec-en" aria-hidden="true">VALUES</p>
-    <h2 class="sec-ja" id="values-h" style="margin-bottom:48px">4つの行動指針</h2>
+    <h2 class="sec-ja" id="values-h">4つの行動指針</h2>
     <div class="values">
       <div><p class="en">FAIR</p><p class="ja">すべての人と公平・公正に向き合う。</p></div>
       <div><p class="en">FUN</p><p class="ja">一つ一つの仕事を楽しむ。</p></div>
@@ -207,33 +209,27 @@
   </div>
 </section>
 
-<section class="sec sec-dark2" id="company">
+<section class="sec sec-dark pattern-dark" id="company">
   <div class="wrap company">
-    <div class="side">
+    <div class="company-head">
       <p class="sec-en" aria-hidden="true">COMPANY</p>
       <h2 class="sec-ja">会社概要</h2>
-      <div class="photo-ph">[代表者ポートレート／撮影風景]</div>
     </div>
-    <div class="main">
-      <dl class="profile">
-        <dt>会社名</dt><dd>株式会社スタジオレゾナンス</dd>
-        <dt>設立</dt><dd>2022年2月</dd>
-        <dt>所在地</dt><dd>〒903-0806 沖縄県那覇市首里汀良町2-7-20 あしゃぎガーデン102</dd>
-        <dt>事業内容</dt><dd>映像の企画・撮影・編集</dd>
-        <dt>主な機材</dt><dd>Sony FX3／DJI Osmo Pocket 3／GoPro ほか</dd>
-      </dl>
-      <div class="links">
-        <a href="/privacy/">プライバシーポリシー</a>
-      </div>
-    </div>
+    <dl class="profile">
+      <dt>会社名</dt><dd>株式会社スタジオレゾナンス</dd>
+      <dt>設立</dt><dd>2022年2月</dd>
+      <dt>所在地</dt><dd>〒903-0806 沖縄県那覇市首里汀良町2-7-20 あしゃぎガーデン102</dd>
+      <dt>事業内容</dt><dd>映像の企画・撮影・編集</dd>
+      <dt>主な機材</dt><dd>Sony FX3／DJI Osmo Pocket 3／GoPro ほか</dd>
+    </dl>
   </div>
 </section>
 
-<section class="sec" id="contact">
+<section class="sec pattern-light" id="contact">
   <div class="wrap contact">
     <p class="sec-en" aria-hidden="true">CONTACT</p>
     <h2 class="sec-ja">お問い合わせ</h2>
-    <p style="margin:16px 0 40px;color:var(--sub)">映像制作のご相談・お見積りはお気軽にどうぞ。内容が固まっていない段階でも構いません。3営業日以内にご返信します。</p>
+    <p class="contact-lead">映像制作のご相談・お見積りはお気軽にどうぞ。内容が固まっていない段階でも構いません。3営業日以内にご返信します。</p>
     <form class="form" id="contact-form" action="https://api.web3forms.com/submit" method="POST">
       <input type="hidden" name="access_key" value="6b99a2ab-497d-4648-a3f3-663fbdc9a202">
       <input type="hidden" name="subject" value="【サイトからのお問い合わせ】スタジオレゾナンス">
@@ -263,20 +259,18 @@
 </section>
 
 </main>
-
-<footer class="footer">
-  <div class="wrap">
+<footer class="footer pattern-dark">
+  <div class="wrap footer-inner">
     <div>
       <p class="logo">STUDIO RESONANCE</p>
-      <p style="margin-top:8px">沖縄県那覇市首里汀良町2-7-20 あしゃぎガーデン102</p>
+      <p class="footer-addr">沖縄県那覇市首里汀良町2-7-20 あしゃぎガーデン102</p>
     </div>
     <nav aria-label="フッターメニュー">
-      <a href="/#works">WORKS</a><a href="/#service">SERVICE</a><a href="/#company">COMPANY</a><a href="/#contact">CONTACT</a><a href="/privacy/">プライバシーポリシー</a>
+      <a href="/works/">WORKS</a><a href="/#service">SERVICE</a><a href="/#company">COMPANY</a><a href="/#contact">CONTACT</a><a href="/privacy/">プライバシーポリシー</a>
     </nav>
     <p class="copy">© 2026 STUDIO RESONANCE Inc.</p>
   </div>
 </footer>
-
 <script src="/js/main.js" defer></script>
 </body>
 </html>

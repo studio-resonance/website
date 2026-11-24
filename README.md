@@ -1,9 +1,12 @@
-# 株式会社スタジオレゾナンス 公式サイト
+# 株式会社スタジオレゾナンス 公式サイト（https://re-son.jp）
 
-Netlifyで公開している静的サイトです（ビルド不要）。mainブランチへの反映で自動公開されます。
+Netlify で公開している静的サイトです。`main` ブランチへ反映すると自動で公開されます（`public/` をそのまま公開）。
 
-- `index.html` … トップページ（実績は `#works` の `<article class="work">` を追加・編集）
-- `privacy/` … プライバシーポリシー
-- `thanks/` … フォーム送信完了ページ
-- `css/style.css` / `js/main.js`
-- 未設定の箇所は `[` `]` で囲んだプレースホルダーになっています（`grep -rn "\[" *.html` で確認）
+## 更新のしかた
+- 実績：`build/works.json` を編集 → `python3 build/build.py` で `public/` を再生成
+- トップページ本文：`build/index.body.html`
+- プライバシーポリシー：`build/privacy.body.html`
+- 見た目：`public/css/style.css`、動き：`public/js/main.js`
+- 共通のヘッダー・フッター、実績カード、カテゴリ一覧は `build/build.py`
+
+`public/` 内の HTML は生成物なので直接編集しないこと。
