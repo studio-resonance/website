@@ -13,6 +13,7 @@ ROOT = Path(__file__).resolve().parent.parent
 PUBLIC = ROOT / "public"
 DOMAIN = "https://re-son.jp"
 TOP_LIMIT = 6  # トップページに表示する実績の件数
+GA_ID = "G-YE70W3HJYG"  # Googleアナリティクスの測定ID
 CATEGORIES = ["CM（TV・WEB）", "TV番組", "行政", "PR動画", "採用動画", "セミナー・講演会収録", "YouTube"]
 
 e = html.escape
@@ -68,6 +69,9 @@ def head(title, description, path, noindex=False):
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800&amp;family=Noto+Sans+JP:wght@400;500;700&amp;display=swap">
 <link rel="stylesheet" href="/css/style.css">
 <script>document.documentElement.classList.add('js')</script>
+<!-- Googleアナリティクス -->
+<script async src="https://www.googletagmanager.com/gtag/js?id={GA_ID}"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}gtag('js',new Date());gtag('config','{GA_ID}');</script>
 """
 
 

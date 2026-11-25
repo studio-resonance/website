@@ -1,4 +1,7 @@
 (function () {
+  // Googleアナリティクスへのイベント送信（読み込まれていなければ何もしない）
+  var track = function (name, params) { if (typeof window.gtag === 'function') window.gtag('event', name, params || {}); };
+
   // ---- スマホ用メニュー（右上の3本線） ----
   var header = document.getElementById('header');
   var toggle = header && header.querySelector('.nav-toggle');
@@ -120,6 +123,7 @@
   // ---- サムネイルをクリックでその場再生（YouTube） ----
   document.querySelectorAll('.thumb[data-yt]').forEach(function (b) {
     b.addEventListener('click', function () {
+      track('work_video_play', { video_id: b.dataset.yt, video_title: (b.getAttribute('aria-label') || '').replace(/^再生：/, '') });
       var f = document.createElement('iframe');
       f.src = 'https://www.youtube-nocookie.com/embed/' + b.dataset.yt + '?autoplay=1&rel=0';
       f.title = b.getAttribute('aria-label');
@@ -148,7 +152,10 @@
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify(data)
       }).then(function (r) { return r.json(); }).then(function (res) {
-        if (res.success) { location.href = '/thanks/'; }
+        if (res.success) {
+          track('generate_lead', { form_name: 'contact', inquiry_type: data['ご相談の種類'] || '' });
+          setTimeout(function () { location.href = '/thanks/'; }, 300);
+        }
         else { throw new Error(res.message); }
       }).catch(function () {
         status.textContent = '送信できませんでした。時間をおいて再度お試しください。';
