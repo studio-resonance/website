@@ -270,3 +270,16 @@ html:not(.js) .works-grid[data-limit] .work:nth-child(n+7){display:none}
   .news-arrow{display:none}
   .page-news .sec{padding-top:120px}
 }
+
+/* ---- 所有機材 ---- */
+.eq-lead{margin:0 0 40px;color:var(--sub)}
+.eq-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:24px}
+.eq-card{background:rgba(255,255,255,.9);border:1px solid var(--line);border-radius:var(--radius);padding:28px 28px 20px;transition:border-color .3s,transform .3s}
+.eq-card:hover{border-color:var(--accent);transform:translateY(-4px)}
+.eq-en{margin:0;font-family:var(--en);font-weight:800;font-size:13px;letter-spacing:.18em;color:var(--accent-ink)}
+.eq-ja{margin:4px 0 16px;font-size:20px}
+.eq-list{list-style:none;margin:0;padding:0}
+.eq-list li{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:10px 0;border-top:1px solid var(--line);font-size:15px}
+.eq-name small{display:block;font-size:12px;color:var(--muted);margin-top:2px}
+.eq-qty{flex:none;font-size:13px;font-weight:700;color:var(--black);background:var(--panel);border-radius:var(--radius);padding:2px 10px}
+.profile dd a{color:var(--accent)}
