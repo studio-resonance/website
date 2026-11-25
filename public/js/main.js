@@ -69,7 +69,15 @@
         }
       });
     }, { rootMargin: '0px 0px -10% 0px' });
-    reveals.forEach(function (el) { el.classList.remove('is-in'); io.observe(el); });
+    reveals.forEach(function (el) {
+      // トップの見出し・紹介文は最初から画面内にあるので、読み込み後すぐに順番に表示
+      if (el.closest('.hero')) {
+        el.style.transitionDelay = (el.classList.contains('hero-foot') ? 0.35 : 0.1) + 's';
+        requestAnimationFrame(function () { el.classList.add('is-in'); });
+        return;
+      }
+      el.classList.remove('is-in'); io.observe(el);
+    });
   } else {
     reveals.forEach(function (el) { el.classList.add('is-in'); });
   }
@@ -92,32 +100,11 @@
     update();
   }
 
-  // ---- ショームービー（背景で音なし自動再生。スマホでは再生しない） ----
-  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var heroMedia = document.querySelector('.hero-media[data-yt]');
-  var isPhone = window.matchMedia && window.matchMedia('(max-width: 640px)').matches;
-  if (heroMedia && !reduce && !isPhone) {
-    var id = heroMedia.dataset.yt;
-    var bg = document.createElement('iframe');
-    bg.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&mute=1&loop=1&playlist=' + id +
-      '&controls=0&playsinline=1&rel=0&modestbranding=1&disablekb=1&iv_load_policy=3&fs=0';
-    bg.title = 'ショームービー（背景）';
-    bg.allow = 'autoplay; encrypted-media';
-    bg.tabIndex = -1;
-    bg.setAttribute('aria-hidden', 'true');
-    heroMedia.appendChild(bg);
-    // 画面サイズに関係なく、16:9の映像で背景を隙間なく覆う
-    var cover = function () {
-      var w = heroMedia.clientWidth, h = heroMedia.clientHeight;
-      var vw = Math.max(w, h * 16 / 9), vh = vw * 9 / 16;
-      if (vh < h) { vh = h; vw = h * 16 / 9; }
-      bg.style.width = Math.ceil(vw) + 'px';
-      bg.style.height = Math.ceil(vh) + 'px';
-    };
-    cover();
-    window.addEventListener('resize', cover);
-    // 読み込み直後に出るYouTubeの表示を見せないよう、少し待ってからフェードイン
-    bg.addEventListener('load', function () { setTimeout(function () { heroMedia.classList.add('is-playing'); }, 2500); });
+  // ---- トップのRECに今日の日付を表示 ----
+  var recDate = document.querySelector('.rec-date');
+  if (recDate) {
+    var d = new Date();
+    recDate.textContent = d.getFullYear() + '.' + ('0' + (d.getMonth() + 1)).slice(-2) + '.' + ('0' + d.getDate()).slice(-2);
   }
 
   // ---- サムネイルをクリックでその場再生（YouTube） ----

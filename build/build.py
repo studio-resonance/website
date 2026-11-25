@@ -67,6 +67,7 @@ def head(title, description, path, noindex=False):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800&amp;family=Noto+Sans+JP:wght@400;500;700&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@800&amp;text=%E3%80%8C%E4%BC%9D%E3%81%88%E3%81%9F%E3%81%84%E3%80%8D%E3%82%92%E6%98%A0%E5%83%8F%E3%81%AB%E3%80%82&amp;display=swap">
 <link rel="stylesheet" href="/css/style.css">
 <script>document.documentElement.classList.add('js')</script>
 <!-- Googleアナリティクス -->

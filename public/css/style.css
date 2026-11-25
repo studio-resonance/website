@@ -50,15 +50,33 @@ img,iframe,video{max-width:100%;display:block}
 .header.is-open .nav-toggle span:nth-child(3){top:23px;transform:rotate(-45deg)}
 
 /* ---- ヒーロー（黒） ---- */
-.hero{position:relative;height:100vh;height:100svh;min-height:520px;display:flex;align-items:flex-end;background:var(--black);color:var(--white);overflow:hidden}
-.hero-media{position:absolute;inset:0;background:#111 center/cover no-repeat}
-.hero-media iframe{opacity:0;transition:opacity 1.2s ease}
-.hero-media.is-playing iframe{opacity:1}
-.hero-media iframe,.hero-media video{position:absolute;top:50%;left:50%;width:100%;height:100%;transform:translate(-50%,-50%) scale(1.15);border:0;pointer-events:none;max-width:none}
-.hero-media::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(to top,rgba(17,17,17,.85) 0%,rgba(17,17,17,.35) 55%,rgba(17,17,17,.25) 100%)}
-.hero-body{position:relative;z-index:2;width:100%;padding-bottom:88px}
-.hero h1{margin:0;font-size:clamp(36px,6vw,64px);line-height:1.3;font-weight:700;letter-spacing:.04em}
-.hero .lead{margin:24px 0 0;max-width:600px;font-size:17px;color:#DDDDDD}
+/* ---- トップ（ファインダー風。背景は淡い水色のグラデーション＋細かい粒子） ---- */
+.hero{position:relative;height:100vh;height:100svh;min-height:600px;overflow:hidden;color:#0F1E26;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .08 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"),radial-gradient(ellipse 70% 60% at 100% 0%,rgba(60,200,240,.30),rgba(60,200,240,0) 70%),linear-gradient(180deg,#EEF9FD,#FFFFFF);background-size:200px 200px,100% 100%,100% 100%}
+.finder{position:absolute;left:40px;right:40px;top:88px;bottom:150px;pointer-events:none}
+.fk{position:absolute;width:44px;height:44px;border:0 solid currentColor}
+.fk-tl{left:0;top:0;border-left-width:3px;border-top-width:3px}
+.fk-tr{right:0;top:0;border-right-width:3px;border-top-width:3px}
+.fk-bl{left:0;bottom:0;border-left-width:3px;border-bottom-width:3px}
+.fk-br{right:0;bottom:0;border-right-width:3px;border-bottom-width:3px}
+.hud{position:absolute;font-family:var(--en);font-weight:800;letter-spacing:.08em;font-size:15px;line-height:1;white-space:nowrap}
+.hud-tl{left:20px;top:20px}.hud-tr{right:20px;top:20px}
+.hud-bl{left:20px;bottom:20px;font-size:13px;opacity:.85}
+.hud-br{right:20px;bottom:18px;font-size:13px;color:var(--accent);display:flex;align-items:center;gap:8px}
+.rec-dot{color:#FF4D4D;animation:rec-blink 1.2s steps(1) infinite}
+@keyframes rec-blink{50%{opacity:.15}}
+.bat{display:inline-block;width:30px;height:15px;border:2px solid currentColor;border-radius:3px;position:relative}
+.bat i{position:absolute;inset:2px;background:currentColor;border-radius:1px}
+.hero-title{position:absolute;left:0;right:0;top:110px;bottom:170px;display:flex;align-items:center;justify-content:center}
+.hero h1{margin:0;writing-mode:vertical-rl;font-family:'Shippori Mincho B1',serif;font-weight:800;font-size:min(92px,10.2svh);line-height:1.12;letter-spacing:0;white-space:nowrap}
+.hero h1 .q-open{display:inline-block;margin-top:-.5em}
+.hero h1 .q-close{letter-spacing:-.5em}
+.hero-foot{position:absolute;left:48px;right:48px;bottom:46px;display:flex;align-items:center;justify-content:space-between;gap:32px}
+.hero .lead{margin:0;font-size:15px;line-height:2;color:#3D4D55}
+.hero .cta{margin:0;flex-wrap:nowrap}
+.hero .cta .btn{width:240px;min-height:56px;font-size:15px;padding:12px 20px}
+.hero .btn-accent{color:#fff}
+.hero .btn-line{border-color:#0F1E26;color:#0F1E26}
+.hero .btn-line:hover{background:#0F1E26;color:#fff}
 .cta{display:flex;flex-wrap:wrap;gap:16px;margin-top:40px}
 
 /* ---- セクション共通 ---- */
@@ -182,6 +200,18 @@ img,iframe,video{max-width:100%;display:block}
 
 /* ======== タブレット ======== */
 @media (max-width:1024px){
+  .finder{left:14px;right:14px;top:72px;bottom:214px}
+  .fk{width:30px;height:30px}
+  .hud{font-size:13px}.hud-tl,.hud-tr{top:12px}.hud-tl,.hud-bl{left:12px}.hud-tr,.hud-br{right:12px}
+  .hud-bl{bottom:12px;font-size:11px}.hud-br{bottom:10px;font-size:11px;gap:6px}
+  .bat{width:26px;height:13px}
+  .hero-title{top:108px;bottom:224px}
+  .hero h1{font-size:min(92px,7.8svh)}
+  .hero-foot{left:18px;right:18px;bottom:36px;display:block}
+  .hero .lead{font-size:13px;line-height:1.8;margin-bottom:18px}
+  .br-pc{display:none}
+  .hero .cta{display:flex;gap:10px}
+  .hero .cta .btn{flex:1;width:auto;min-height:50px;font-size:14px;padding:10px 8px}
   .works-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
   .company{grid-template-columns:1fr;gap:32px}
 }
@@ -203,13 +233,7 @@ img,iframe,video{max-width:100%;display:block}
   .wrap{padding:0 20px}
   .header-inner{min-height:64px}
   .logo{font-size:15px;letter-spacing:.14em}
-  /* スマホ：ショームービーは流さず、グレーのコンクリート調テクスチャー */
-  .hero-media{background-color:#5E5E5E!important;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600'%3E%3Cfilter id='b'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.012' numOctaves='4' seed='7'/%3E%3CfeColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .35 -.05'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23b)'/%3E%3C/svg%3E"),linear-gradient(160deg,#7A7A7A 0%,#5A5A5A 55%,#3F3F3F 100%)!important;background-size:240px 240px,600px 600px,cover!important;background-repeat:repeat,repeat,no-repeat!important}
-  .hero-media iframe{display:none}
-  .hero-media::after{background:linear-gradient(to top,rgba(17,17,17,.7) 0%,rgba(17,17,17,.15) 60%,rgba(17,17,17,0) 100%)}
-  .hero-body{padding-bottom:56px}
-  .hero h1{font-size:30px;letter-spacing:.02em}
-  .hero .lead{font-size:15px}
+  .hero h1{font-size:min(66px,7.8svh)}
   .cta .btn{flex:1 1 100%}
   .sec{padding:80px 0}
   .sec-head{margin-bottom:32px}
