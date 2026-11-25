@@ -17,6 +17,27 @@ CATEGORIES = ["CM（TV・WEB）", "TV番組", "行政", "PR動画", "採用動�
 
 e = html.escape
 works = json.loads((ROOT / "build" / "works.json").read_text(encoding="utf-8"))
+news = sorted(json.loads((ROOT / "build" / "news.json").read_text(encoding="utf-8")), key=lambda n: n["date"], reverse=True)
+NEWS_TOP_LIMIT = 3  # トップページに表示するNEWSの件数
+
+
+def jdate(d):
+    y, m, dd = d.split("-")
+    return f"{y}.{m}.{dd}"
+
+
+def news_list(items):
+    rows = []
+    for n in items:
+        rows.append(f"""      <li class="news-item reveal">
+        <a href="/news/{n['slug']}/">
+          <time datetime="{n['date']}">{jdate(n['date'])}</time>
+          <span class="news-cat">{e(n['category'])}</span>
+          <span class="news-title">{e(n['title'])}</span>
+          <span class="news-arrow" aria-hidden="true"></span>
+        </a>
+      </li>""")
+    return '<ul class="news-list">\n' + "\n".join(rows) + "\n    </ul>"
 
 for w in works:
     for c in w["categories"]:
@@ -58,6 +79,7 @@ HEADER = """<header class="header" id="header">
     </button>
     <nav class="nav" id="site-nav" aria-label="メインメニュー">
       <a href="/works/">WORKS</a>
+      <a href="/news/">NEWS</a>
       <a href="/#service">SERVICE</a>
       <a href="/#company">COMPANY</a>
       <a class="btn btn-accent" href="/#contact">お問い合わせ</a>
@@ -73,7 +95,7 @@ FOOTER = """<footer class="footer pattern-dark" data-header="dark">
       <p class="footer-addr">沖縄県那覇市首里汀良町2-7-20 あしゃぎガーデン102</p>
     </div>
     <nav aria-label="フッターメニュー">
-      <a href="/works/">WORKS</a><a href="/#service">SERVICE</a><a href="/#company">COMPANY</a><a href="/#contact">CONTACT</a><a href="/privacy/">プライバシーポリシー</a>
+      <a href="/works/">WORKS</a><a href="/news/">NEWS</a><a href="/#service">SERVICE</a><a href="/#company">COMPANY</a><a href="/#contact">CONTACT</a><a href="/privacy/">プライバシーポリシー</a>
     </nav>
     <p class="copy">© 2026 STUDIO RESONANCE Inc.</p>
   </div>
@@ -130,7 +152,7 @@ def write(path, text):
 
 # ---------------------------------------------------------------- トップページ
 index_body = (ROOT / "build" / "index.body.html").read_text(encoding="utf-8")
-index_body = index_body.replace("{{WORKS_FILTERS}}", filters()).replace("{{WORKS_GRID}}", works_grid(TOP_LIMIT))
+index_body = index_body.replace("{{WORKS_FILTERS}}", filters()).replace("{{WORKS_GRID}}", works_grid(TOP_LIMIT)).replace("{{NEWS_LIST}}", news_list(news[:NEWS_TOP_LIMIT]))
 write("index.html",
       head("株式会社スタジオレゾナンス｜沖縄の映像制作会社",
            "株式会社スタジオレゾナンスは、沖縄・那覇を拠点に企画・撮影・編集まで一貫して手がける映像制作会社です。企業PR・ブランドムービー、採用動画、セミナー収録、広告・SNS動画、YouTube番組制作に対応します。",
@@ -183,11 +205,44 @@ simple_page("404.html", "ページが見つかりません", "お探しのペー
     <p class="page-sub">お探しのページが見つかりませんでした。</p>
     <p class="page-actions"><a class="btn btn-dark" href="/">トップページへ戻る</a></p>""", noindex=True)
 
-write("sitemap.xml", f"""<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>{DOMAIN}/</loc></url>
-  <url><loc>{DOMAIN}/works/</loc></url>
-  <url><loc>{DOMAIN}/privacy/</loc></url>
-</urlset>
-""")
-print("built:", len(works), "works")
+# ---------------------------------------------------------------- NEWS
+write("news/index.html",
+      head("NEWS｜株式会社スタジオレゾナンス", "株式会社スタジオレゾナンスのお知らせ・ニュース一覧。", "/news/")
+      + "</head>\n<body>\n" + HEADER + f"""<main class="page-news">
+<section class="sec pattern-light">
+  <div class="wrap news-wrap">
+    <div class="sec-head reveal">
+      <div>
+        <h1 class="sec-en">NEWS</h1>
+        <p class="sec-ja">お知らせ</p>
+      </div>
+    </div>
+    {news_list(news)}
+  </div>
+</section>
+</main>
+""" + FOOTER)
+
+for i, n in enumerate(news):
+    body = "\n".join(f"      <p>{e(p)}</p>" for p in n["body"])
+    links = "".join(f'<a class="btn btn-accent" href="{e(u)}">{e(t)}</a>' for t, u in n.get("links", []))
+    desc = n["body"][0][:110]
+    write(f"news/{n['slug']}/index.html",
+          head(f"{n['title']}｜NEWS｜株式会社スタジオレゾナンス", desc, f"/news/{n['slug']}/")
+          + "</head>\n<body>\n" + HEADER + f"""<main class="page pattern-light">
+  <article class="wrap article">
+    <p class="article-meta"><time datetime="{n['date']}">{jdate(n['date'])}</time><span class="news-cat">{e(n['category'])}</span></p>
+    <h1 class="article-title">{e(n['title'])}</h1>
+    <div class="article-body">
+{body}
+    </div>
+    {f'<p class="article-links">{links}</p>' if links else ''}
+    <p class="article-back"><a href="/news/"><span aria-hidden="true">← </span>NEWS一覧へ</a></p>
+  </article>
+</main>
+""" + FOOTER)
+
+urls = ["/", "/works/", "/news/"] + [f"/news/{n['slug']}/" for n in news] + ["/privacy/"]
+write("sitemap.xml", '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+      + "".join(f"  <url><loc>{DOMAIN}{u}</loc></url>\n" for u in urls) + "</urlset>\n")
+print("built:", len(works), "works,", len(news), "news")
